@@ -8,6 +8,8 @@ cameraApp.directive('camera', function() {
       restrict: 'A',
       require: 'ngModel',
       link: function(scope, elm, attrs, ctrl) {
+
+
          elm.on('click', function() {
             navigator.camera.getPicture(function (imageURI) {
                scope.$apply(function() {
@@ -15,7 +17,17 @@ cameraApp.directive('camera', function() {
                });
             }, function (err) {
                ctrl.$setValidity('error', false);
-            }, { quality: 50, destinationType: Camera.DestinationType.FILE_URI })
+            }, {
+                quality : 50,
+                destinationType : Camera.DestinationType.DATA_URL,
+                sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit : true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 1000,
+                targetHeight: 1000,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false
+            })
          });
       }
    };
