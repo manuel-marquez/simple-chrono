@@ -13,11 +13,6 @@ and open the template in the editor.
         <script src= "library/js/libs/angularjs/1.3.14/angular.min.js"></script>
         <!--<script src= "library/js/controllers/twitterController.js"></script>-->
         <script src= "library/js/controllers/timeController.js"></script>
-
-        <!-- load camera code -->
-        <script src= "library/js/controllers/cameraController.js"></script>
-        <script src= "library/js/directives/cameraDirective.js"></script>
-
         <link href="library/css/style.css" type="text/css" rel="stylesheet">
 
     </head>
@@ -31,10 +26,8 @@ and open the template in the editor.
             <div class="actions">
                 <button class="set-chrono button{{chrono_status_class}}" ng-click="setChrono()">{{chrono_message}} Chrono</button>
             </div>
-            <p ng-show="show_message === true">{{message}}</p>
+            <p ng-show="show_message == true">{{message}}</p>
         </div>
-
-        <button camera ng-model='myPicture'>Take Picture</button>
         
     </body>
 </html>
